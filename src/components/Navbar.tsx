@@ -85,7 +85,7 @@ export function Navbar() {
             </motion.div>
           </Link>
 
-          {/* Desktop Nav Links with Floating Pill Hover */}
+          {/* Desktop Nav Links with Distinct Color Hover */}
           <nav className="hidden lg:flex items-center gap-1.5">
             {navLinks.map((item) => {
               const isActive = pathname === item.href;
@@ -100,8 +100,8 @@ export function Navbar() {
                     href={item.href}
                     className={`px-4 py-2 rounded-full text-xs font-bold transition-all relative block ${
                       isActive
-                        ? "bg-[#0F172A] text-[#FFFFFF] shadow-md shadow-[#0F172A]/20"
-                        : "text-[#475569] hover:text-[#0F172A] hover:bg-[#F8FAFC] hover:shadow-xs"
+                        ? "bg-[#EB8317] text-[#FFFFFF] shadow-md shadow-[#EB8317]/35 ring-2 ring-[#F3C623]/60"
+                        : "text-[#334155] hover:text-[#FFFFFF] hover:bg-[#EB8317] hover:shadow-md hover:shadow-[#EB8317]/25"
                     }`}
                   >
                     {item.name}
@@ -120,7 +120,7 @@ export function Navbar() {
             >
               <Link
                 href="/donor-dashboard"
-                className="px-4 py-2 rounded-full text-xs font-bold text-[#0F172A] hover:bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#EB8317] transition-all block shadow-xs"
+                className="px-4 py-2 rounded-full text-xs font-bold text-[#0F172A] hover:text-[#FFFFFF] bg-[#FFFFFF] hover:bg-[#F3C623] hover:text-[#0F172A] border border-[#E2E8F0] hover:border-[#F3C623] transition-all block shadow-xs"
               >
                 Dashboard
               </Link>
