@@ -12,64 +12,59 @@ import {
   LayoutDashboard,
   ChevronRight,
   ShieldCheck,
-  Menu,
-  X
+  ArrowRight
 } from "lucide-react";
 
 export function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   const navLinks = [
-    { name: "Home", href: "/", icon: Sparkles },
-    { name: "Focus Areas", href: "/focus-areas", icon: Layers },
-    { name: "Regional Centers", href: "/geo-centers", icon: MapPin },
-    { name: "Impact Stories", href: "/impact-stories", icon: Heart },
-    { name: "CSR Partnerships", href: "/csr-partnerships", icon: Briefcase },
-    { name: "Donor Dashboard", href: "/donor-dashboard", icon: LayoutDashboard }
+    { name: "Home", href: "/" },
+    { name: "Focus Areas", href: "/focus-areas" },
+    { name: "Regional Centers", href: "/geo-centers" },
+    { name: "Impact Stories", href: "/impact-stories" },
+    { name: "CSR Partnerships", href: "/csr-partnerships" },
+    { name: "Donor Dashboard", href: "/donor-dashboard" }
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[#E2E8F0] shadow-sm">
-      {/* Top Notice Bar */}
-      <div className="bg-[#F8FAFC] border-b border-[#E2E8F0] text-xs py-1.5 px-4 sm:px-8 text-[#64748B]">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-          <div className="flex items-center gap-2.5">
-            <span className="inline-flex items-center gap-1.5 text-[#EB8317] font-bold">
-              <span className="w-2 h-2 rounded-full bg-[#EB8317] animate-pulse"></span>
-              Clause III Non-Profit Foundation
-            </span>
-            <span className="hidden md:inline text-[#E2E8F0]">|</span>
-            <span className="hidden md:inline">Govt. & CSR Implementing Partner</span>
+    <header className="sticky top-0 z-40 w-full bg-[#FFFFFF]/90 backdrop-blur-xl border-b border-[#E2E8F0]/80">
+      {/* Sleek Top Verification Bar */}
+      <div className="bg-[#F8FAFC] border-b border-[#E2E8F0]/60 text-[11px] py-1.5 px-4 sm:px-8 text-[#64748B]">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#EB8317] animate-pulse"></span>
+            <span className="font-semibold text-[#0F172A]">Neev Welfare Foundation</span>
+            <span className="hidden sm:inline text-[#CBD5E1]">•</span>
+            <span className="hidden sm:inline">Clause III Registered Non-Profit</span>
           </div>
-          <div className="flex items-center gap-4 text-xs">
-            <span className="text-[#334155]">
-              Tax Exemption: <strong className="text-[#EB8317]">80G & 12A Certified</strong>
-            </span>
+          <div className="flex items-center gap-3">
+            <span className="text-[#0F172A] font-semibold">80G & 12A Certified</span>
+            <span className="text-[#CBD5E1]">•</span>
             <Link
               href="/geo-centers"
-              className="text-[#EB8317] hover:text-[#F3C623] transition-colors font-bold flex items-center gap-0.5"
+              className="text-[#EB8317] hover:text-[#0F172A] transition-colors font-bold flex items-center gap-0.5"
             >
-              <span>Explore 6 Regional Hubs</span>
+              <span>Regional Centers</span>
               <ChevronRight className="w-3 h-3" />
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
+      {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo & Foundation Identity */}
+        <div className="flex items-center justify-between h-16 sm:h-20">
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EB8317] to-[#F3C623] flex items-center justify-center text-[#FFFFFF] font-black text-2xl shadow-lg shadow-[#EB8317]/25 group-hover:scale-105 transition-transform">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-[#EB8317] via-[#F3C623] to-[#EB8317] flex items-center justify-center text-[#FFFFFF] font-black text-xl shadow-md group-hover:scale-105 transition-transform">
               N
             </div>
             <div className="flex flex-col">
-              <span className="text-[#0F172A] font-black text-xl tracking-tight leading-tight group-hover:text-[#EB8317] transition-colors">
+              <span className="text-[#0F172A] font-black text-base sm:text-lg tracking-tight leading-none group-hover:text-[#EB8317] transition-colors">
                 Neev Welfare Foundation
               </span>
-              <span className="text-xs text-[#EB8317] font-bold tracking-wide">
+              <span className="text-[11px] text-[#64748B] font-medium tracking-tight mt-1">
                 Building Hope • Empowering Lives • Strengthening Communities
               </span>
             </div>
@@ -78,19 +73,17 @@ export function Navbar() {
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((item) => {
-              const Icon = item.icon;
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                  className={`px-3.5 py-2 rounded-full text-xs font-bold transition-all ${
                     isActive
-                      ? "bg-[#EB8317] text-[#FFFFFF] shadow-sm"
-                      : "text-[#334155] hover:bg-[#F8FAFC] hover:text-[#EB8317]"
+                      ? "bg-[#0F172A] text-[#FFFFFF] shadow-sm"
+                      : "text-[#475569] hover:text-[#0F172A] hover:bg-[#F8FAFC]"
                   }`}
                 >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#FFFFFF]" : "text-[#EB8317]"}`} />
                   {item.name}
                 </Link>
               );
@@ -101,24 +94,24 @@ export function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/donor-dashboard"
-              className="px-4 py-2.5 rounded-xl text-xs font-black bg-[#FFFFFF] text-[#0F172A] hover:bg-[#F8FAFC] transition-all border border-[#E2E8F0] shadow-sm"
+              className="px-4 py-2 rounded-full text-xs font-bold text-[#0F172A] hover:bg-[#F8FAFC] border border-[#E2E8F0] transition-all"
             >
-              Donor Portal
+              Dashboard
             </Link>
             <Link
               href="/csr-partnerships"
-              className="px-4 py-2.5 rounded-xl text-xs font-black bg-[#EB8317] text-[#FFFFFF] hover:bg-[#F3C623] hover:text-[#0F172A] transition-all shadow-md shadow-[#EB8317]/25 flex items-center gap-1.5"
+              className="px-5 py-2 rounded-full text-xs font-black bg-[#EB8317] text-[#FFFFFF] hover:bg-[#0F172A] transition-all shadow-sm flex items-center gap-1.5"
             >
-              <Heart className="w-3.5 h-3.5 fill-current" />
               <span>Partner With Us</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          {/* Mobile Quick Info Toggle (Dock is at bottom) */}
+          {/* Mobile Quick Action Pill */}
           <div className="flex lg:hidden">
             <Link
               href="/csr-partnerships"
-              className="px-3.5 py-1.5 rounded-full bg-[#EB8317] text-[#FFFFFF] font-black text-xs shadow-md"
+              className="px-4 py-1.5 rounded-full bg-[#EB8317] text-[#FFFFFF] font-bold text-xs shadow-sm"
             >
               Partner
             </Link>
