@@ -62,38 +62,64 @@ body {
   backface-visibility: hidden;
 }
 
+/* Universal Hover & Motion Utility Classes */
+.interactive-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.interactive-card:hover {
+  transform: translateY(-5px) scale(1.015);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08), 0 0 0 1px #EB8317;
+}
+
+.interactive-pill {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.interactive-pill:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 20px -4px rgba(235, 131, 23, 0.25);
+}
+
+.interactive-btn {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.interactive-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 25px -5px rgba(235, 131, 23, 0.35);
+}
+
+.interactive-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.interactive-icon-box {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.interactive-icon-box:hover {
+  transform: rotate(6deg) scale(1.12);
+  box-shadow: 0 8px 20px -2px rgba(243, 198, 35, 0.4);
+}
+
 /* Glassmorphism & Depth Layers */
 .glass-white {
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
 .glass-dock {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(243, 198, 35, 0.35);
   box-shadow: 0 12px 36px -4px rgba(15, 23, 42, 0.12), 0 0 24px -2px rgba(235, 131, 23, 0.15);
-}
-
-.glow-orange-subtle {
-  box-shadow: 0 10px 30px -5px rgba(235, 131, 23, 0.25);
-}
-
-.glow-yellow-subtle {
-  box-shadow: 0 10px 30px -5px rgba(243, 198, 35, 0.3);
-}
-
-/* Card Depth Effect */
-.card-vibe-3d {
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: transform;
-}
-
-.card-vibe-3d:hover {
-  box-shadow: 0 20px 40px -15px rgba(235, 131, 23, 0.2), 0 0 1px 1px rgba(243, 198, 35, 0.3);
 }
 
 /* Focus Outline */
@@ -106,6 +132,6 @@ body {
 .bg-grid-pattern {
   background-size: 36px 36px;
   background-image: 
-    linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+    linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px);
 }

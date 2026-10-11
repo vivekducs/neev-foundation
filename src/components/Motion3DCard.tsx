@@ -14,18 +14,16 @@ export function Motion3DCard({
   children,
   className = "",
   onClick,
-  tiltAngle = 14
+  tiltAngle = 12
 }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Motion values tracking cursor position on card
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  // Smooth springs for high-velocity 3D perspective response
-  const mouseXSpring = useSpring(x, { stiffness: 260, damping: 20 });
-  const mouseYSpring = useSpring(y, { stiffness: 260, damping: 20 });
+  const mouseXSpring = useSpring(x, { stiffness: 280, damping: 22 });
+  const mouseYSpring = useSpring(y, { stiffness: 280, damping: 22 });
 
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [tiltAngle, -tiltAngle]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-tiltAngle, tiltAngle]);
@@ -35,12 +33,10 @@ export function Motion3DCard({
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
+    const xPct = mouseX / rect.width - 0.5;
+    const yPct = mouseY / rect.height - 0.5;
     x.set(xPct);
     y.set(yPct);
   };
@@ -64,21 +60,28 @@ export function Motion3DCard({
         rotateY,
         transformStyle: "preserve-3d"
       }}
-      whileHover={{ scale: 1.025, z: 25 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={{
+        y: -6,
+        scale: 1.025,
+        boxShadow: "0 24px 48px -12px rgba(235, 131, 23, 0.18), 0 0 0 1.5px #EB8317"
+      }}
+      whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 350, damping: 25 }}
-      className={`relative perspective-1000 ${className}`}
+      className={`relative perspective-1000 cursor-pointer rounded-3xl ${className}`}
     >
-      {/* Glare specular highlight */}
+      {/* Dynamic specular glare shimmer on hover */}
       {isHovered && (
         <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           style={{
-            background: `radial-gradient(circle at ${glareX} ${glareY}, rgba(243, 198, 35, 0.22) 0%, rgba(235, 131, 23, 0.08) 40%, transparent 80%)`,
+            background: `radial-gradient(circle at ${glareX} ${glareY}, rgba(243, 198, 35, 0.28) 0%, rgba(235, 131, 23, 0.12) 35%, transparent 75%)`,
           }}
           className="pointer-events-none absolute inset-0 z-30 rounded-3xl transition-opacity duration-300"
         />
       )}
-      <div style={{ transform: "translateZ(30px)" }} className="relative z-10 h-full">
+      <div style={{ transform: "translateZ(24px)" }} className="relative z-10 h-full">
         {children}
       </div>
     </motion.div>
