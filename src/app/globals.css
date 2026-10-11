@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neev-white: #FFFFFF;
+  --color-neev-canvas: #F8FAFC;
+  --color-neev-yellow: #F3C623;
+  --color-neev-orange: #EB8317;
+  --color-neev-charcoal: #0F172A;
+  --color-neev-slate: #334155;
+  --color-neev-muted: #64748B;
+  --color-neev-border: #E2E8F0;
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #0F172A;
+  --accent-orange: #EB8317;
+  --accent-yellow: #F3C623;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #0F172A;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #EB8317;
+}
+
+/* 3D Perspective & Motion Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-2000 {
+  perspective: 2000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Glassmorphism & Depth Layers */
+.glass-white {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-dock {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(243, 198, 35, 0.35);
+  box-shadow: 0 12px 36px -4px rgba(15, 23, 42, 0.12), 0 0 24px -2px rgba(235, 131, 23, 0.15);
+}
+
+.glow-orange-subtle {
+  box-shadow: 0 10px 30px -5px rgba(235, 131, 23, 0.25);
+}
+
+.glow-yellow-subtle {
+  box-shadow: 0 10px 30px -5px rgba(243, 198, 35, 0.3);
+}
+
+/* Card Depth Effect */
+.card-vibe-3d {
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+.card-vibe-3d:hover {
+  box-shadow: 0 20px 40px -15px rgba(235, 131, 23, 0.2), 0 0 1px 1px rgba(243, 198, 35, 0.3);
+}
+
+/* Focus Outline */
+:focus-visible {
+  outline: 2px solid #EB8317;
+  outline-offset: 2px;
+}
+
+/* Ambient Animated Grid */
+.bg-grid-pattern {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+}
