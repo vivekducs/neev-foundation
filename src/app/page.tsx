@@ -136,37 +136,37 @@ export default function HomePage() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
-                      <span className="text-xs text-[#64748B] block">Beneficiaries Reached</span>
+                      <span className="text-xs text-[#64748B] block">Focus Areas</span>
                       <p className="text-xl font-black text-[#EB8317]">
-                        {DONOR_METRICS_OVERVIEW.verifiedBeneficiariesCount}
+                        {DONOR_METRICS_OVERVIEW.activeFocusDomains}
                       </p>
-                      <span className="text-[10px] text-[#64748B] block">[Placeholder Verified]</span>
+                      <span className="text-[10px] text-[#64748B] block">Clause III (A)</span>
                     </div>
 
                     <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
-                      <span className="text-xs text-[#64748B] block">Regional Centers</span>
-                      <p className="text-xl font-black text-[#F3C623]">
-                        {DONOR_METRICS_OVERVIEW.activeCentersCovered}
+                      <span className="text-xs text-[#64748B] block">Model</span>
+                      <p className="text-xs font-black text-[#F3C623] leading-tight">
+                        CSR & Govt. Partner
                       </p>
-                      <span className="text-[10px] text-[#64748B] block">[North & Central Hubs]</span>
+                      <span className="text-[10px] text-[#64748B] block">Clause III (B)</span>
                     </div>
 
                     <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
-                      <span className="text-xs text-[#64748B] block">Active Project Spend</span>
-                      <p className="text-base font-black text-[#0F172A]">
-                        {DONOR_METRICS_OVERVIEW.totalUtilizedBudgetPlaceholder}
+                      <span className="text-xs text-[#64748B] block">Compliance</span>
+                      <p className="text-sm font-black text-[#0F172A]">
+                        {DONOR_METRICS_OVERVIEW.statutoryAuditStatus}
                       </p>
                       <span className="text-[10px] text-[#EB8317] font-bold block">
-                        {DONOR_METRICS_OVERVIEW.overallUtilizationPercentage}% Deployed
+                        Statutory Audit
                       </span>
                     </div>
 
                     <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
-                      <span className="text-xs text-[#64748B] block">Social Impact Audits</span>
-                      <p className="text-base font-black text-[#EB8317]">
-                        {DONOR_METRICS_OVERVIEW.auditedReportsCount}
+                      <span className="text-xs text-[#64748B] block">Tracking</span>
+                      <p className="text-xs font-black text-[#EB8317] leading-tight">
+                        {DONOR_METRICS_OVERVIEW.regionalCenterTracking}
                       </p>
-                      <span className="text-[10px] text-[#64748B] block">[Independent Reviews]</span>
+                      <span className="text-[10px] text-[#64748B] block">Field Network</span>
                     </div>
                   </div>
 
@@ -175,7 +175,7 @@ export default function HomePage() {
                       href="/donor-dashboard"
                       className="w-full py-3.5 rounded-xl bg-[#EB8317] hover:bg-[#F3C623] hover:text-[#0F172A] text-[#FFFFFF] font-black text-xs uppercase tracking-wider text-center block transition-all shadow-md"
                     >
-                      View Audited Financials & Utilization
+                      Open Live Donor Dashboard
                     </Link>
                   </div>
                 </div>
