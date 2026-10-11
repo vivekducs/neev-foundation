@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -15,6 +15,11 @@ import {
 } from "lucide-react";
 
 export function Footer() {
+  const [currentYear, setCurrentYear] = useState<number | string>(2026);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
   return (
     <footer className="bg-[#FFFFFF] text-[#0F172A] border-t border-[#E2E8F0] pb-24 lg:pb-8 transition-colors">
       {/* Sleek Minimal CTA Banner with 3D Hover Physics */}
@@ -183,7 +188,7 @@ export function Footer() {
 
         {/* Minimal Bottom Line with Hover Notice */}
         <div className="mt-10 pt-6 border-t border-[#E2E8F0] flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-[#94A3B8]">
-          <p>© 2025 Neev Welfare Foundation. All rights reserved.</p>
+          <p>© {currentYear} Neev Welfare Foundation. All rights reserved.</p>
           <div className="flex items-center gap-3">
             <motion.span whileHover={{ color: "#0F172A" }} className="cursor-default transition-colors">
               Clause III MOA Compliant
